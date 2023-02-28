@@ -1,0 +1,108 @@
+openapi: 3.0.3
+info:
+  title: Inditex shop
+  description: |-
+    Inditex shop API
+  contact:
+    email: onedi.edoni@gmail.com
+  license:
+    name: GPL-3.0
+    url: https://opensource.org/license/gpl-3-0/
+  version: 1.0.0
+tags:
+  - name: stock
+    description: Everything about the stock
+paths:
+  /product/{id}:
+    get:
+      tags:
+        - stock
+      summary: Finds products
+      description: Finds products based on current stock with current prices
+      operationId: findProducts
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: Product's id
+          example: 10
+        - name: when
+          in: query
+          description: Date and time for when the prices will be calculated
+          required: false
+          explode: false
+          schema:
+            type: string
+          example: 2020-06-14 00:00:00
+        - name: brandId
+          in: query
+          required: true
+          schema:
+            type: integer
+          example: 1
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Product'
+        '400':
+          description: Invalid parameters
+components:
+  schemas:
+    Product:
+      required:
+        - name
+        - photoUrls
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Product's id
+          format: int64
+          readOnly: true
+          example: 10
+        brandId:
+          type: integer
+          format: int64
+          readOnly: true
+          example: 1
+        priceList:
+          type: integer
+          description: Aplicable price id
+          format: int64
+          readOnly: true
+          example: 1
+        startDate:
+          type: string
+          readOnly: true
+          example: 2020-06-14 00:00:00
+        endDate:
+          type: string
+          readOnly: true
+          example: 2020-06-15 00:00:00
+        price:
+          $ref: '#/components/schemas/Money'
+    Money:
+      type: object
+      properties:
+        amount:
+          type: number
+          description: Amount expressed as a decimal number of major currency units
+          format: decimal
+          readOnly: true
+          example: 99.95
+        currency:
+          type: string
+          description: 3 letter currency code as defined by ISO-4217
+          format: iso-4217
+          readOnly: true
+          example: EUR
+      required:
+        - amount
+        - currency
