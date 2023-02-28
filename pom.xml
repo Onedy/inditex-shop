@@ -67,6 +67,11 @@
 				<groupId>org.openapitools</groupId>
 				<artifactId>openapi-generator-maven-plugin</artifactId>
 				<version>5.1.0</version>
+				<configuration>
+					<globalProperties>
+						<apis></apis>
+					</globalProperties>
+				</configuration>
 				<executions>
 					<execution>
 						<goals>
@@ -79,10 +84,8 @@
 							<generatorName>spring</generatorName>
 							<apiPackage>com.inditex.shop.api</apiPackage>
 							<modelPackage>com.inditex.shop.dto</modelPackage>
-							<supportingFilesToGenerate>
-								ApiUtil.java
-							</supportingFilesToGenerate>
 							<configOptions>
+								<skipDefaultInterface>true</skipDefaultInterface>
 								<delegatePattern>false</delegatePattern>
 								<interfaceOnly>true</interfaceOnly>
 								<hideGenerationTimestamp>true</hideGenerationTimestamp>
