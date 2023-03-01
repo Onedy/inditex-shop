@@ -1,4 +1,4 @@
-package com.inditex.shop;
+package com.inditex.shop.controller;
 
 import com.inditex.shop.api.ProductApi;
 import com.inditex.shop.dto.Product;
