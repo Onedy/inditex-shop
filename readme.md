@@ -1,7 +1,39 @@
+# shop API
+
+This is an API first microservice that serves information about products.
+
+Steps in its creation:
+
 1. First, the project was generated with Spring initialzr (https://start.spring.io/).
-2. Added openapi-generator
+2. Added openapi-generator in order to generate the API and DTOs from main/resources/api.yml
 3. Moved back from Spring boot 3.0.3 to 2.7.9 because 3.0.0 transitioned to JakartaEE 9 and
    openapi-generator does not fully support it
    yet (https://github.com/OpenAPITools/openapi-generator/issues/13124)
 4. Created database (flyway)
-5. Implementation
+5. Implemented endpoint (tests, controller, service, mapper, product factory)
+6. Refactor and added swagger-ui
+7. Release
+
+API docs are also auto generated based on the OpenAPI 3 specification from annotations, available at
+
+- http://localhost:8080/v3/api-docs (json format)
+- http://localhost:8080/v3/api-docs.yaml (yaml format)
+
+Swagger integration available at http://localhost:8080/swagger-ui.html
+
+Tests can be run with `./mvnw clean test`
+
+## Manually test the microservice
+
+To start the microservice, execute the following command in the root folder of the project:
+
+```shell script
+./mvnw clean package && java -jar controller/target/controller-0.1.0.jar
+```
+
+and you will be able to test the endpoint in the swagger-ui: http://localhost:8080/swagger-ui.html
+
+## Dataset
+
+Provided dataset is loaded via flyway and is tested
+in [ProductIntegrationTest.java](src%2Ftest%2Fjava%2Fcom%2Finditex%2Fshop%2Fintegration%2FProductIntegrationTest.java)
