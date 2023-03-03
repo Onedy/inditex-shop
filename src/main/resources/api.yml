@@ -17,47 +17,48 @@ paths:
     get:
       tags:
         - stock
-      summary: Finds products
-      description: Finds products based on current stock with current prices
-      operationId: findProducts
+      summary: Finds product
+      description: Finds product based on current stock with current prices
+      operationId: findProduct
       parameters:
         - name: id
           in: path
           required: true
           schema:
             type: integer
+            format: int64
           description: Product's id
           example: 10
-        - name: when
-          in: query
-          description: Date and time for when the prices will be calculated
-          required: false
-          explode: false
-          schema:
-            type: string
-          example: 2020-06-14 00:00:00
         - name: brandId
           in: query
           required: true
           schema:
             type: integer
+            format: int64
           example: 1
+        - name: when
+          in: query
+          description: Date and time for when the prices will be calculated. If omitted, will search for current date and time.
+          required: false
+          explode: false
+          schema:
+            type: string
+            format: date-time
+          example: 2020-06-14 00:00:00
       responses:
         '200':
           description: successful operation
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Product'
+                $ref: '#/components/schemas/Product'
         '400':
           description: Invalid parameters
 components:
   schemas:
     Product:
       required:
-        - name
+        - id
         - photoUrls
       type: object
       properties:
@@ -67,11 +68,22 @@ components:
           format: int64
           readOnly: true
           example: 10
-        brandId:
-          type: integer
-          format: int64
+        name:
+          type: string
+          description: Product's name
           readOnly: true
-          example: 1
+          example: Zapatos
+        brand:
+          type: object
+          properties:
+            id:
+              type: integer
+              format: int64
+              readOnly: true
+              example: 1
+            name:
+              type: string
+              example: ZARA
         priceList:
           type: integer
           description: Aplicable price id
@@ -80,9 +92,11 @@ components:
           example: 1
         startDate:
           type: string
+          format: date-time
           readOnly: true
           example: 2020-06-14 00:00:00
         endDate:
+          format: date-time
           type: string
           readOnly: true
           example: 2020-06-15 00:00:00
@@ -106,3 +120,8 @@ components:
       required:
         - amount
         - currency
+    ApiError:
+      type: object
+      properties:
+        description:
+          type: string
