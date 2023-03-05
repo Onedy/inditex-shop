@@ -1,4 +1,4 @@
-package com.inditex.shop.service;
+package com.inditex.shop.domain.service;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.ArgumentMatchers.any;
@@ -7,10 +7,10 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import com.inditex.shop.dto.ProductFactory;
-import com.inditex.shop.entity.Price;
-import com.inditex.shop.exception.NotFoundException;
-import com.inditex.shop.repository.PriceRepository;
+import com.inditex.shop.application.exception.NotFoundException;
+import com.inditex.shop.domain.entity.Price;
+import com.inditex.shop.domain.factory.ProductFactory;
+import com.inditex.shop.domain.repository.PriceRepository;
 import java.time.OffsetDateTime;
 import java.util.Optional;
 import org.junit.jupiter.api.Test;
@@ -27,7 +27,7 @@ class ProductServiceTest {
     @Mock
     private ProductFactory productFactory;
     @InjectMocks
-    private ProductService productService;
+    private DomainProductService productService;
 
     @Test
     void shouldReturnExpectedProduct_whenGetProductIsCalled() {

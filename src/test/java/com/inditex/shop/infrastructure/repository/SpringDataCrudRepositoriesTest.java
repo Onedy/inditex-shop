@@ -1,8 +1,8 @@
-package com.inditex.shop.repository;
+package com.inditex.shop.infrastructure.repository;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.inditex.shop.entity.Price;
+import com.inditex.shop.domain.entity.Price;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,10 +13,10 @@ import org.springframework.data.util.Streamable;
 
 @DataJpaTest
 @AutoConfigureTestDatabase
-public class RepositoriesTest {
+public class SpringDataCrudRepositoriesTest {
 
     @Autowired
-    private PriceRepository priceRepository;
+    private SpringDataPriceCrudRepository priceRepository;
 
     @Test
     void shouldAutowireAndRetrievePrices() {

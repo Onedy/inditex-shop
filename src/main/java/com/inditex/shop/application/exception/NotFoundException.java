@@ -1,4 +1,4 @@
-package com.inditex.shop.exception;
+package com.inditex.shop.application.exception;
 
 public class NotFoundException extends RuntimeException {
 

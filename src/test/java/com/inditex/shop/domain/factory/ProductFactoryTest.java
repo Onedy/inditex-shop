@@ -1,12 +1,15 @@
-package com.inditex.shop.dto;
+package com.inditex.shop.domain.factory;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
-import com.inditex.shop.entity.Brand;
-import com.inditex.shop.entity.Price;
-import com.inditex.shop.mapper.BrandMapper;
+import com.inditex.shop.application.dto.Money;
+import com.inditex.shop.application.dto.Product;
+import com.inditex.shop.application.dto.ProductBrand;
+import com.inditex.shop.domain.entity.Brand;
+import com.inditex.shop.domain.entity.Price;
+import com.inditex.shop.domain.mapper.BrandMapper;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import org.junit.jupiter.api.Test;
@@ -36,7 +39,7 @@ class ProductFactoryTest {
         String productName = "Zapatos";
         Price priceInDb = Price.builder()
             .id(priceList)
-            .product(com.inditex.shop.entity.Product.builder()
+            .product(com.inditex.shop.domain.entity.Product.builder()
                 .id(productId)
                 .name(productName)
                 .build())
@@ -55,7 +58,7 @@ class ProductFactoryTest {
             .build());
 
         assertThat(productFactory.build(priceInDb))
-            .isEqualTo(com.inditex.shop.dto.Product.builder()
+            .isEqualTo(Product.builder()
                 .id(productId)
                 .name(productName)
                 .brand(ProductBrand.builder()

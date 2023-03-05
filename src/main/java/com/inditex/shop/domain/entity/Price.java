@@ -1,4 +1,4 @@
-package com.inditex.shop.entity;
+package com.inditex.shop.domain.entity;
 
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
