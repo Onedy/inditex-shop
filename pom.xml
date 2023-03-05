@@ -104,8 +104,8 @@
                 ${project.basedir}/src/main/resources/api.yml
               </inputSpec>
               <generatorName>spring</generatorName>
-              <apiPackage>com.inditex.shop.api</apiPackage>
-              <modelPackage>com.inditex.shop.dto</modelPackage>
+              <apiPackage>com.inditex.shop.application.controller.api</apiPackage>
+              <modelPackage>com.inditex.shop.application.dto</modelPackage>
               <configOptions>
                 <skipDefaultInterface>true</skipDefaultInterface>
                 <delegatePattern>false</delegatePattern>

@@ -1,12 +1,12 @@
-package com.inditex.shop.repository;
+package com.inditex.shop.infrastructure.repository;
 
-import com.inditex.shop.entity.Price;
+import com.inditex.shop.domain.entity.Price;
 import java.time.OffsetDateTime;
 import java.util.Optional;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
-public interface PriceRepository extends CrudRepository<Price, Long> {
+public interface SpringDataPriceCrudRepository extends CrudRepository<Price, Long> {
 
     @Query(value = "SELECT * FROM price p "
         + "WHERE p.product_id = ?1 AND "

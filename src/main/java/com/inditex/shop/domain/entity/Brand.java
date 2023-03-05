@@ -1,4 +1,4 @@
-package com.inditex.shop.entity;
+package com.inditex.shop.domain.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-public class Product {
+public class Brand {
 
     @Id
     private long id;

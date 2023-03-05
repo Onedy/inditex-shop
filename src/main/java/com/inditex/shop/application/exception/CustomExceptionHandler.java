@@ -1,6 +1,6 @@
-package com.inditex.shop.exception;
+package com.inditex.shop.application.exception;
 
-import com.inditex.shop.dto.ApiError;
+import com.inditex.shop.application.dto.ApiError;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;

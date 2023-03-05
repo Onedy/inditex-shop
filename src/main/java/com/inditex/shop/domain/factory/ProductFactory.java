@@ -1,7 +1,9 @@
-package com.inditex.shop.dto;
+package com.inditex.shop.domain.factory;
 
-import com.inditex.shop.entity.Price;
-import com.inditex.shop.mapper.BrandMapper;
+import com.inditex.shop.application.dto.Money;
+import com.inditex.shop.application.dto.Product;
+import com.inditex.shop.domain.entity.Price;
+import com.inditex.shop.domain.mapper.BrandMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

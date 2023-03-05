@@ -1,8 +1,8 @@
-package com.inditex.shop.controller;
+package com.inditex.shop.application.controller;
 
-import com.inditex.shop.api.ProductApi;
-import com.inditex.shop.dto.Product;
-import com.inditex.shop.service.ProductService;
+import com.inditex.shop.application.controller.api.ProductApi;
+import com.inditex.shop.application.dto.Product;
+import com.inditex.shop.domain.service.ProductService;
 import java.time.OffsetDateTime;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
