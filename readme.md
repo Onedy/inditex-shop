@@ -1,6 +1,6 @@
 # shop API
 
-This is an API first microservice that serves information about products.
+This is an API first hexagonal-architecture microservice that serves information about products.
 
 Steps in its creation:
 
@@ -12,7 +12,8 @@ Steps in its creation:
 4. Created database (flyway)
 5. Implemented endpoint (tests, controller, service, mapper, product factory)
 6. Refactor and added swagger-ui
-7. Release
+7. Migrated to hexagonal architecture
+8. Release
 
 API docs are also auto generated based on the OpenAPI 3 specification from annotations, available at
 
@@ -23,12 +24,22 @@ Swagger integration available at http://localhost:8080/swagger-ui.html
 
 Tests can be run with `./mvnw clean test`
 
+## About hexagonal architecture
+
+Hexagonal architecture is a model of designing software applications around domain logic to isolate
+it from external factors.
+
+![](https://reflectoring.io/images/posts/spring-hexagonal/hexagonal-architecture_hu6764515d7030d45af6f7f498c79e292b_50897_956x0_resize_box_3.png)
+
+In order to achieve this, the code is divided into three layers: application (outside), domain
+(inside) and infrastructure (outside).
+
 ## Manually test the microservice
 
 To start the microservice, execute the following command in the root folder of the project:
 
 ```shell script
-./mvnw clean package && java -jar controller/target/controller-0.1.0.jar
+./mvnw clean package && java -jar target/shop-0.1.0.jar
 ```
 
 and you will be able to test the endpoint in the swagger-ui: http://localhost:8080/swagger-ui.html
