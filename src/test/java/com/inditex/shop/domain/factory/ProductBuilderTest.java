@@ -19,12 +19,12 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 @ExtendWith(MockitoExtension.class)
-class ProductFactoryTest {
+class ProductBuilderTest {
 
     @Mock
     private BrandMapper brandMapper;
     @InjectMocks
-    private ProductFactory productFactory;
+    private ProductBuilder productBuilder;
 
     @Test
     void shouldBuildProductCorrectly() {
@@ -57,7 +57,7 @@ class ProductFactoryTest {
             .name(brandName)
             .build());
 
-        assertThat(productFactory.build(priceInDb))
+        assertThat(productBuilder.build(priceInDb))
             .isEqualTo(Product.builder()
                 .id(productId)
                 .name(productName)

@@ -11,7 +11,7 @@
   </parent>
   <groupId>com.inditex</groupId>
   <artifactId>shop</artifactId>
-  <version>0.1.0</version>
+  <version>0.1.1</version>
   <name>shop</name>
   <description>Demo project for Spring Boot</description>
   <properties>

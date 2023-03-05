@@ -9,7 +9,7 @@ import static org.mockito.Mockito.when;
 
 import com.inditex.shop.application.exception.NotFoundException;
 import com.inditex.shop.domain.entity.Price;
-import com.inditex.shop.domain.factory.ProductFactory;
+import com.inditex.shop.domain.factory.ProductBuilder;
 import com.inditex.shop.domain.repository.PriceRepository;
 import java.time.OffsetDateTime;
 import java.util.Optional;
@@ -25,7 +25,7 @@ class ProductServiceTest {
     @Mock
     private PriceRepository priceRepository;
     @Mock
-    private ProductFactory productFactory;
+    private ProductBuilder productBuilder;
     @InjectMocks
     private DomainProductService productService;
 
@@ -38,7 +38,7 @@ class ProductServiceTest {
 
         productService.getProduct(1L, 1L, OffsetDateTime.now());
 
-        verify(productFactory).build(priceInDb);
+        verify(productBuilder).build(priceInDb);
     }
 
     @Test

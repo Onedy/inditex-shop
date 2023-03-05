@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
-public class ProductFactory {
+public class ProductBuilder {
 
     private final BrandMapper brandMapper;
 

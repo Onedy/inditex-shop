@@ -39,7 +39,7 @@ In order to achieve this, the code is divided into three layers: application (ou
 To start the microservice, execute the following command in the root folder of the project:
 
 ```shell script
-./mvnw clean package && java -jar target/shop-0.1.0.jar
+./mvnw clean package && java -jar target/shop-0.1.1.jar
 ```
 
 and you will be able to test the endpoint in the swagger-ui: http://localhost:8080/swagger-ui.html
@@ -48,3 +48,8 @@ and you will be able to test the endpoint in the swagger-ui: http://localhost:80
 
 Provided dataset is loaded via flyway and is tested
 in [ProductIntegrationTest.java](src%2Ftest%2Fjava%2Fcom%2Finditex%2Fshop%2Fintegration%2FProductIntegrationTest.java)
+
+## Improvements
+
+1. Decouple domain POJOs from entity POJOs in order to normalize Product class (Product should
+   contain a price and a branch, and the price shouldn't contain a product)
